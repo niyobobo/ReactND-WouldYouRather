@@ -1,0 +1,13 @@
+.container {
+  min-height: 100vh;
+  max-width: 114rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 60rem;
+  padding: 1rem 1.5rem;
+  box-shadow: 0.5rem 1rem 3rem rgba(black, 0.15);
+}

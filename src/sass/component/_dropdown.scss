@@ -1,0 +1,75 @@
+.dropdown {
+  position: relative;
+  width: 100%;
+  cursor: pointer;
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 1.5rem;
+    line-height: 3rem;
+    border: 1px solid rgb(223, 223, 223);
+    border-radius: 3px;
+    position: relative;
+    background-color: white;
+    border-radius: 0;
+
+    &-title {
+      font-weight: 300;
+      margin: 2px 1rem;
+      margin-right: 30px;
+    }
+
+    svg {
+      margin-right: 1.5rem;
+    }
+  }
+
+  &__list {
+    z-index: 10;
+    position: absolute;
+    width: 100%;
+    border: 1px solid rgb(223, 223, 223);
+    border-top: none;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
+    background-color: white;
+    box-shadow: 0 2px 5px -1px rgb(232, 232, 232);
+    overflow-y: scroll;
+    -webkit-overflow-scrolling: touch;
+
+    &-item {
+      width: 100%;
+      font-size: 1.5rem;
+      padding: 0.5rem 1rem;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      display: flex;
+      align-items: center;
+      transition: 0.2s ease-in-out;
+      -webkit-transition: 0.2s ease-in-out;
+      -moz-transition: 0.2s ease-in-out;
+      -ms-transition: 0.2s ease-in-out;
+      -o-transition: 0.2s ease-in-out;
+
+      & .avatar {
+        width: 3.6rem;
+        height: 3.6rem;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+
+      & .name {
+        padding: 1rem;
+      }
+
+      &:hover {
+        background-color: #f0f0f0;
+      }
+    }
+  }
+}
