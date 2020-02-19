@@ -1,12 +1,13 @@
-import React from "react";
-import "../App.css";
+import React, { Fragment } from "react";
 import Login from "./Login";
+import Navigation from "../components/Navigation";
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
+      <Navigation />
       <Login />
-    </div>
+    </Fragment>
   );
 }
 

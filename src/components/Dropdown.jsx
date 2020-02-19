@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import { FaCaretDown, FaCaretUp } from "react-icons/fa";
+import CircleImage from "./CircleImage";
 
 class Dropdown extends Component {
   state = {
@@ -45,16 +46,21 @@ class Dropdown extends Component {
         </div>
         {isListOpen && (
           <ul className="dropdown__list">
-            {list.map(user => (
-              <li
-                key={user.id}
-                className="dropdown__list-item"
-                onClick={() => handleSelect(user)}
-              >
-                <img className="avatar" src={user.avatarURL} alt={user.name} />
-                <span className="name">{user.name}</span>
-              </li>
-            ))}
+            {list.length &&
+              list.map(user => (
+                <li
+                  key={user.id}
+                  className="dropdown__list-item"
+                  onClick={() => handleSelect(user)}
+                >
+                  <CircleImage
+                    className="avatar"
+                    title={user.name}
+                    url={user.avatarURL}
+                  />
+                  <span className="name">{user.name}</span>
+                </li>
+              ))}
           </ul>
         )}
       </div>

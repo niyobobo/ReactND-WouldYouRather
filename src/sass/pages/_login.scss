@@ -1,13 +1,37 @@
-.container {
+.section-login {
   min-height: 100vh;
-  max-width: 114rem;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
 .card {
+  text-align: center;
   width: 60rem;
+  height: 40rem;
   padding: 1rem 1.5rem;
-  box-shadow: 0.5rem 1rem 3rem rgba(black, 0.15);
+  box-shadow: 0rem 3rem 3rem rgba(black, 0.15);
+  background-image: linear-gradient(105deg, $primary-color 50%, white 50%);
+
+  & h1 {
+    font-weight: 300;
+    margin-bottom: 2rem;
+    text-transform: uppercase;
+  }
+
+  &__logo {
+    width: 9.6rem;
+    height: 9.6rem;
+    margin: 0 auto;
+    margin-bottom: 3rem;
+  }
+  &-left {
+    padding: 4rem 2rem;
+    color: white;
+  }
+
+  &-right {
+    padding: 0 2rem;
+    margin-top: 10rem;
+  }
 }
