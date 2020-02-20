@@ -1,7 +1,6 @@
 .navigation {
   background: $primary-color-dark;
   box-shadow: 0 0 2rem rgba(black, $alpha: 0.3);
-  position: fixed;
   width: 100%;
 }
 
@@ -13,50 +12,53 @@
     display: inline-block;
     align-items: center;
     padding: 1.7rem 2rem;
-    cursor: pointer;
-    transition: 0.3s ease-in-out;
-    -webkit-transition: 0.3s ease-in-out;
-    -moz-transition: 0.3s ease-in-out;
-    -ms-transition: 0.3s ease-in-out;
-    -o-transition: 0.3s ease-in-out;
-    border-bottom: 2px solid transparent;
 
     & a {
       display: flex;
       align-items: center;
       text-decoration: none;
       color: white;
+      transition: 0.3s ease-in-out;
+      -webkit-transition: 0.3s ease-in-out;
+      -moz-transition: 0.3s ease-in-out;
+      -ms-transition: 0.3s ease-in-out;
+      -o-transition: 0.3s ease-in-out;
+
+      &:hover,
+      & .active {
+        color: black;
+        cursor: pointer;
+      }
     }
 
     & svg {
-      height: 2rem;
-      width: 2rem;
-      margin: 0 0.5rem 0 0;
+      height: 3rem;
+      width: 3rem;
+      padding: 0.5rem;
+      cursor: pointer;
+
+      &:hover {
+        color: black;
+      }
+    }
+
+    & img {
+      height: 3rem;
+      width: 3rem;
+      margin-left: 1rem;
     }
 
     &--right {
+      display: flex;
+      align-items: center;
       float: right;
       padding-right: 0;
     }
 
-    &:hover:not(:last-child) {
-      color: $primary-color-dark;
-      background-color: white;
-      cursor: pointer;
-    }
-
-    &:active {
-      border-bottom: 2px solid white;
-    }
-
     &:last-child {
+      color: white;
       & svg {
         margin: 0 1.5rem;
-        transform: rotate(0.25turn);
-        -webkit-transform: rotate(0.25turn);
-        -moz-transform: rotate(0.25turn);
-        -ms-transform: rotate(0.25turn);
-        -o-transform: rotate(0.25turn);
       }
     }
   }

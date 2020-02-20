@@ -1,26 +1,11 @@
 import React, { Component } from "react";
-import Dropdown from "../components/Dropdown";
+import { connect } from "react-redux";
 import { DiReact } from "react-icons/di";
+import { handleUserLogin } from "../redux/actions/auth";
+import Dropdown from "../components/Dropdown";
 
 class Login extends Component {
   state = {
-    users: [
-      {
-        id: "sarahedo",
-        name: "Sarah Edo",
-        avatarURL: "https://tylermcginnis.com/would-you-rather/sarah.jpg"
-      },
-      {
-        id: "tylermcginnis",
-        name: "Tyler McGinnis",
-        avatarURL: "https://tylermcginnis.com/would-you-rather/sarah.jpg"
-      },
-      {
-        id: "johndoe",
-        name: "John Doe",
-        avatarURL: "https://tylermcginnis.com/would-you-rather/sarah.jpg"
-      }
-    ],
     user: null
   };
 
@@ -33,7 +18,7 @@ class Login extends Component {
   handleSubmit = e => {
     e.preventDefault();
     const { user } = this.state;
-    console.log(user);
+    this.props.userLogin(user.id);
   };
 
   render() {
@@ -51,7 +36,7 @@ class Login extends Component {
               <form onSubmit={this.handleSubmit}>
                 <Dropdown
                   title={user ? user.name : "Select user"}
-                  list={this.state.users}
+                  users={this.props.users}
                   handleSelect={this.handleSelect}
                 />
                 <button
@@ -70,4 +55,12 @@ class Login extends Component {
   }
 }
 
-export default Login;
+const mapDispatchToProps = dispatch => ({
+  userLogin: id => dispatch(handleUserLogin(id))
+});
+
+const mapStateToProps = ({ users }) => ({
+  users: Object.values(users)
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

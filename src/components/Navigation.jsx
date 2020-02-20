@@ -1,41 +1,38 @@
 import React from "react";
+import { IoIosAdd, IoIosList, IoIosPower } from "react-icons/io";
+import { GoHome } from "react-icons/go";
+import { NavLink } from "react-router-dom";
+import { connect } from "react-redux";
+import { handleUserLogout } from "../redux/actions/auth";
 import CircleImage from "./CircleImage";
-import {
-  IoIosHome,
-  IoIosCreate,
-  IoMdClipboard,
-  IoIosLogOut
-} from "react-icons/io";
 
-const Navigation = ({ user }) => {
+const Navigation = ({ user, logout }) => {
   return (
     <div className="navigation">
       <nav className="container">
         <ul className="nav">
           <li className="nav__item">
-            <a href="#">
-              <IoIosHome />
+            <NavLink activeClassName="active" to="/">
+              <GoHome />
               <span>Dashboard</span>
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item">
-            <a href="#">
-              <IoIosCreate />
-              <span>Create</span>
-            </a>
+            <NavLink activeClassName="active" to="/add">
+              <IoIosAdd />
+              <span>New Question</span>
+            </NavLink>
           </li>
           <li className="nav__item">
-            <a href="#">
-              <IoMdClipboard />
+            <NavLink activeClassName="active" to="/leaderboard">
+              <IoIosList />
               <span>Leader board</span>
-            </a>
+            </NavLink>
           </li>
           <li className="nav__item nav__item--right">
-            <a href="#">
-              <span>{"user.name"}</span>
-              <CircleImage url={"user.imageAvatar"} title={"user.name"} />
-              <IoIosLogOut />
-            </a>
+            <span>{`Hello, ${user.name}`}</span>
+            <CircleImage url={user.avatarURL} title={user.name} />
+            <IoIosPower onClick={logout}/>
           </li>
         </ul>
       </nav>
@@ -43,4 +40,12 @@ const Navigation = ({ user }) => {
   );
 };
 
-export default Navigation;
+const mapStateToProps = ({ users, user }) => ({
+  user: users[user.id]
+});
+
+const mapDispatchToProps = dispatch => ({
+  logout: () => dispatch(handleUserLogout())
+});
+
+export default connect(mapStateToProps, mapDispatchToProps)(Navigation);

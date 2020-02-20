@@ -35,7 +35,7 @@ class Dropdown extends Component {
   };
 
   render() {
-    const { list, handleSelect, title } = this.props;
+    const { users, handleSelect, title } = this.props;
     const { isListOpen } = this.state;
 
     return (
@@ -46,8 +46,8 @@ class Dropdown extends Component {
         </div>
         {isListOpen && (
           <ul className="dropdown__list">
-            {list.length &&
-              list.map(user => (
+            {users.length &&
+              users.map(user => (
                 <li
                   key={user.id}
                   className="dropdown__list-item"
