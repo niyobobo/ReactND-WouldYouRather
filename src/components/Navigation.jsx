@@ -1,12 +1,12 @@
 import React from "react";
 import { IoIosAdd, IoIosList, IoIosPower } from "react-icons/io";
 import { GoHome } from "react-icons/go";
-import { NavLink } from "react-router-dom";
+import { NavLink, withRouter } from "react-router-dom";
 import { connect } from "react-redux";
 import { handleUserLogout } from "../redux/actions/auth";
 import CircleImage from "./CircleImage";
 
-const Navigation = ({ user, logout }) => {
+const Navigation = ({ user, logout, history }) => {
   return (
     <div className="navigation">
       <nav className="container">
@@ -30,9 +30,18 @@ const Navigation = ({ user, logout }) => {
             </NavLink>
           </li>
           <li className="nav__item nav__item--right">
-            <span>{`Hello, ${user.name}`}</span>
-            <CircleImage url={user.avatarURL} title={user.name} />
-            <IoIosPower onClick={logout}/>
+            {user && (
+              <>
+                <span>{`Hello, ${user.name}`}</span>
+                <CircleImage src={user.avatarURL} title={user.name} />
+                <IoIosPower
+                  onClick={() => {
+                    history.push("/");
+                    logout();
+                  }}
+                />
+              </>
+            )}
           </li>
         </ul>
       </nav>
@@ -48,4 +57,6 @@ const mapDispatchToProps = dispatch => ({
   logout: () => dispatch(handleUserLogout())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Navigation);
+export default withRouter(
+  connect(mapStateToProps, mapDispatchToProps)(Navigation)
+);

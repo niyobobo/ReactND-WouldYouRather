@@ -1,4 +1,7 @@
 .navigation {
+  position: sticky;
+  top: 0;
+  left: 0;
   background: $primary-color-dark;
   box-shadow: 0 0 2rem rgba(black, $alpha: 0.3);
   width: 100%;
@@ -60,6 +63,47 @@
       & svg {
         margin: 0 1.5rem;
       }
+    }
+  }
+}
+
+.tab-pane {
+  font-size: 1.5rem;
+  margin-top: 1rem;
+
+  &__navigation {
+    &--item {
+      cursor: pointer;
+      padding: 1rem 3rem;
+      display: inline-block;
+      border: 1px solid $color-gray;
+      border-bottom: 0;
+      border-top-left-radius: 1rem;
+      border-top-right-radius: 1rem;
+
+      & .title {
+        height: 100%;
+        display: inline-flex;
+        align-items: center;
+        font-weight: 500;
+        text-transform: uppercase;
+      }
+
+      & .badge {
+        color: white;
+        float: right;
+        background-color: $primary-color-dark;
+        padding: 0.2em 0.5em;
+        border-radius: 50%;
+        -webkit-border-radius: 50%;
+        -moz-border-radius: 50%;
+        -ms-border-radius: 50%;
+        -o-border-radius: 50%;
+      }
+    }
+
+    .activeItem {
+      background-color: $color-gray;
     }
   }
 }

@@ -46,21 +46,22 @@ class Dropdown extends Component {
         </div>
         {isListOpen && (
           <ul className="dropdown__list">
-            {users.length &&
-              users.map(user => (
-                <li
-                  key={user.id}
-                  className="dropdown__list-item"
-                  onClick={() => handleSelect(user)}
-                >
-                  <CircleImage
-                    className="avatar"
-                    title={user.name}
-                    url={user.avatarURL}
-                  />
-                  <span className="name">{user.name}</span>
-                </li>
-              ))}
+            {!users.length
+              ? null
+              : users.map(user => (
+                  <li
+                    key={user.id}
+                    className="dropdown__list-item"
+                    onClick={() => handleSelect(user)}
+                  >
+                    <CircleImage
+                      className="avatar"
+                      title={user.name}
+                      src={user.avatarURL}
+                    />
+                    <span className="name">{user.name}</span>
+                  </li>
+                ))}
           </ul>
         )}
       </div>

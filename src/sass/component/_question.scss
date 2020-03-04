@@ -1,0 +1,44 @@
+.card {
+  margin: 1rem;
+  border: 1px solid $color-gray;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+
+  &__title {
+    background-color: $color-gray;
+    padding: 1.5rem;
+    font-size: 1.2rem;
+    border-bottom: 1px solid $color-gray;
+  }
+
+  &__body {
+    display: flex;
+    font-size: 1.5rem;
+    padding: 1rem 2rem 2rem 0rem;
+
+    &--left {
+      flex: 1;
+      justify-content: center;
+      border-right: 1px solid $color-gray;
+
+      & .avatar {
+        margin: 0 auto;
+        width: 10rem;
+      }
+    }
+
+    &--right {
+      flex: 3;
+      padding-left: 2rem;
+    }
+  }
+
+  &__question {
+    &-section {
+      margin: 1rem;
+    }
+  }
+}

@@ -1,9 +1,9 @@
 import React from "react";
 
-const CircleImage = ({ title, url, ...props }) => {
+const CircleImage = ({ src, title, ...props }) => {
   return (
     <img
-      src={url}
+      src={src}
       alt={title}
       {...props}
       style={{

@@ -1,0 +1,11 @@
+.dashboard {
+  margin: 0 auto;
+  max-width: 60rem;
+
+  &__body {
+    border-bottom-left-radius: 1rem;
+    border-bottom-right-radius: 1rem;
+    border: 1px solid $color-gray;
+    margin-bottom: 1rem;
+  }
+}

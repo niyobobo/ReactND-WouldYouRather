@@ -25,13 +25,13 @@ class Login extends Component {
     const { user } = this.state;
     return (
       <section className="section-login">
-        <div className="card ">
+        <div className="login-card ">
           <div className="row">
-            <div className="column card-left">
-              <DiReact className="card__logo" />
+            <div className="column login-card-left">
+              <DiReact className="login-card__logo" />
               <h1>Enjoy playing Would you rather game.</h1>
             </div>
-            <div className="column card-right">
+            <div className="column login-card-right">
               <h1>Sign in</h1>
               <form onSubmit={this.handleSubmit}>
                 <Dropdown

@@ -1,7 +1,12 @@
 @import "./abstract/variables";
+
 @import "./base/base";
+
 @import "./component/dropdown";
 @import "./component/grid";
 @import "./component/button";
 @import "./component/navigation";
+@import "./component/question";
+
 @import "./pages/login";
+@import "./pages/home";

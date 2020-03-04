@@ -2,11 +2,11 @@ import React, { Component } from "react";
 import Login from "./Login";
 import Dashboard from "./Dashboard";
 import { connect } from "react-redux";
-import { handleReceiveUsers } from "../redux/actions/users";
+import { handleInitialData } from "../redux/actions/shared";
 
 class App extends Component {
   componentDidMount() {
-    this.props.getAllUsers();
+    this.props.getInitialData();
   }
 
   render() {
@@ -20,7 +20,7 @@ const mapStateToProps = ({ user }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  getAllUsers: () => dispatch(handleReceiveUsers())
+  getInitialData: () => dispatch(handleInitialData())
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
