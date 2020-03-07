@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { headerTitles } from "../utils/formatter";
+import { headerTitles, checkId } from "../utils/formatter";
 import Question from "../components/Question";
 import TabNavigation from "../components/TabNavigation";
 
@@ -37,14 +37,12 @@ class Home extends Component {
 }
 
 const mapStateToProps = ({ user, questions }) => {
-  const value = option => option.votes.includes(user.id);
+  const { id } = user;
   const data = {
     notAnswered: Object.values(questions).filter(
-      ({ optionOne, optionTwo }) => !value(optionOne) && !value(optionTwo)
+      question => !checkId(question, id)
     ),
-    answered: Object.values(questions).filter(
-      ({ optionOne, optionTwo }) => value(optionOne) || value(optionTwo)
-    )
+    answered: Object.values(questions).filter(question => checkId(question, id))
   };
   return {
     data,

@@ -7,3 +7,8 @@ export const headerTitles = (data) => {
     }
   })
 }
+
+export const checkId = (question, id) => {
+  const { optionOne, optionTwo } = question;
+  return optionOne.votes.concat(optionTwo.votes).includes(id)
+};
