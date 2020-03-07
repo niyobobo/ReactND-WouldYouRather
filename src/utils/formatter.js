@@ -1,7 +1,8 @@
 export const headerTitles = (data) => {
   return Object.keys(data).map(element => {
     return {
-      title: element,
+      tabKey: element,
+      title: element.replace(/([a-z])([A-Z])/g, '$1 $2'),
       value: data[element].length
     }
   })

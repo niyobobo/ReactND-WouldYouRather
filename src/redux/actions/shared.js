@@ -1,4 +1,5 @@
 import { _getUsers, _getQuestions } from '../../utils/_DATA';
+import { showLoading, hideLoading } from 'react-redux-loading'
 
 export const LOAD_DATA = 'LOAD_DATA';
 
@@ -11,11 +12,13 @@ const receiveInitialData = (users, questions) => {
 }
 
 export const handleInitialData = () => async (dispatch) => {
+  dispatch(showLoading());
   try {
     const users = await _getUsers();
     const questions = await _getQuestions();
-    return dispatch(receiveInitialData(users, questions));
+    dispatch(receiveInitialData(users, questions));
+    return dispatch(hideLoading());
   } catch (error) {
-    console.log(error);
+    return alert(error);
   }
 }

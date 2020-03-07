@@ -1,8 +1,9 @@
-import React, { Component } from "react";
-import Login from "./Login";
-import Dashboard from "./Dashboard";
+import React, { Component, Fragment } from "react";
 import { connect } from "react-redux";
 import { handleInitialData } from "../redux/actions/shared";
+import LoadingBar from "react-redux-loading";
+import Login from "./Login";
+import Dashboard from "./Dashboard";
 
 class App extends Component {
   componentDidMount() {
@@ -11,7 +12,12 @@ class App extends Component {
 
   render() {
     const { user } = this.props;
-    return !user ? <Login /> : <Dashboard />;
+    return (
+      <Fragment>
+        <LoadingBar />
+        {!user ? <Login /> : <Dashboard />}
+      </Fragment>
+    );
   }
 }
 

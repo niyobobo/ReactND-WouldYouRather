@@ -40,7 +40,7 @@ class Login extends Component {
                   handleSelect={this.handleSelect}
                 />
                 <button
-                  className="block btn btn-auth"
+                  className="block btn btn-primary"
                   type="submit"
                   disabled={!user}
                 >

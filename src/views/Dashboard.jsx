@@ -4,6 +4,7 @@ import Navigation from "../components/Navigation";
 import Home from "./Home";
 import Create from "./Create";
 import LeaderBoard from "./LeaderBoard";
+import QuestionPoll from "./QuestionPoll";
 
 class Dashboard extends Component {
   render() {
@@ -14,6 +15,7 @@ class Dashboard extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/add" component={Create} />
           <Route path="/leaderboard" component={LeaderBoard} />
+          <Route path="/question/:id" component={QuestionPoll} />
           <Route render={() => <div>Not Found</div>} />
         </Switch>
       </Fragment>

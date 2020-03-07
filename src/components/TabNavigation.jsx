@@ -7,13 +7,13 @@ const TabNavigation = ({ data, activeTab, handleSelection }) => {
       <div className="row tab-pane__navigation">
         {!data.length
           ? null
-          : data.map(({ title, value }, index) => (
+          : data.map(({ tabKey, title, value }) => (
               <TabItem
-                key={index}
+                key={tabKey}
                 title={title}
                 value={value}
-                isActive={activeTab === title}
-                handleSelection={() => handleSelection(title)}
+                isActive={activeTab === tabKey}
+                handleSelection={() => handleSelection(tabKey)}
               />
             ))}
       </div>

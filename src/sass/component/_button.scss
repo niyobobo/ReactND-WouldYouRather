@@ -11,8 +11,8 @@
   -ms-transition: 0.5s ease-in-out;
   -o-transition: 0.5s ease-in-out;
 
-  &-auth {
-    border: none;
+  &-primary {
+    border: 1px solid $primary-color;
     background-color: $primary-color;
     color: white;
     margin-top: 3rem;
@@ -20,7 +20,6 @@
     &:hover {
       background-color: white;
       color: $primary-color;
-      border: 1px solid $primary-color;
     }
   }
 

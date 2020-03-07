@@ -9,13 +9,11 @@ export default (state = {}, action) => {
     case LOGIN_REQUEST:
       return {
         ...state,
-        loading: true,
       };
     case LOGIN_SUCCESS:
       return {
         ...state,
-        loading: false,
-          id: action.id
+        id: action.id
       };
     case USER_LOGOUT:
       return {};

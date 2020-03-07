@@ -1,4 +1,5 @@
 import { LOAD_DATA } from "../actions/shared";
+import { CREATE_QUESTION } from '../actions/question';
 
 export default (state = {}, action) => {
   switch (action.type) {
@@ -6,6 +7,12 @@ export default (state = {}, action) => {
       return {
         ...state,
         ...action.questions
+      };
+    case CREATE_QUESTION:
+      const { question } = action;
+      return {
+        ...state,
+        [question.id]: question
       };
     default:
       return state;

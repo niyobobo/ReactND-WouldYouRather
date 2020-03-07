@@ -8,16 +8,52 @@
   -o-border-radius: 0.5rem;
 
   &__title {
-    background-color: $color-gray;
     padding: 1.5rem;
     font-size: 1.2rem;
+    background-color: $color-gray;
     border-bottom: 1px solid $color-gray;
+
+    h1 {
+      font-weight: 400;
+    }
   }
 
   &__body {
     display: flex;
     font-size: 1.5rem;
-    padding: 1rem 2rem 2rem 0rem;
+    padding: 1rem 2rem;
+
+    .header {
+      margin: 1rem 0 1.5rem;
+      font-weight: 400;
+    }
+
+    .form-control {
+      font-size: 1.5rem;
+      padding: 1rem;
+      outline: none;
+      margin: 1rem 0 0;
+      border: 1px solid $color-gray;
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+    }
+
+    .btn {
+      border-radius: 0.5rem;
+      -webkit-border-radius: 0.5rem;
+      -moz-border-radius: 0.5rem;
+      -ms-border-radius: 0.5rem;
+      -o-border-radius: 0.5rem;
+    }
+
+    .separator {
+      margin-top: 1rem;
+      text-transform: uppercase;
+      text-align: center;
+    }
 
     &--left {
       flex: 1;

@@ -6,7 +6,7 @@ import TabNavigation from "../components/TabNavigation";
 
 class Home extends Component {
   state = {
-    activeTab: "answered"
+    activeTab: "notAnswered"
   };
 
   handleTabSelection = tab => {
@@ -18,12 +18,12 @@ class Home extends Component {
   render() {
     const { categories, data } = this.props;
     const { activeTab } = this.state;
-    
+
     return (
       <div className="dashboard">
         <TabNavigation
           data={categories}
-          activeTab={this.state.activeTab}
+          activeTab={activeTab}
           handleSelection={this.handleTabSelection}
         />
         <div className="dashboard__body">
@@ -39,11 +39,11 @@ class Home extends Component {
 const mapStateToProps = ({ user, questions }) => {
   const value = option => option.votes.includes(user.id);
   const data = {
-    answered: Object.values(questions).filter(
-      ({ optionOne, optionTwo }) => value(optionOne) || value(optionTwo)
-    ),
     notAnswered: Object.values(questions).filter(
       ({ optionOne, optionTwo }) => !value(optionOne) && !value(optionTwo)
+    ),
+    answered: Object.values(questions).filter(
+      ({ optionOne, optionTwo }) => value(optionOne) || value(optionTwo)
     )
   };
   return {
