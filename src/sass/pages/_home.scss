@@ -8,4 +8,10 @@
     border: 1px solid $color-gray;
     margin-bottom: 1rem;
   }
+
+  &__no-data {
+    font-size: 1.5rem;
+    padding: 2rem;
+    text-align: center;
+  }
 }

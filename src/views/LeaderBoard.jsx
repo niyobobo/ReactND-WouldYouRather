@@ -1,9 +1,27 @@
-import React, { Component } from "react";
+import React from "react";
+import { connect } from "react-redux";
+import VoteBoard from "../components/VoteBoard";
 
-class LeaderBoard extends Component {
-  render() {
-    return <h1>Leader Board</h1>;
-  }
-}
+const LeaderBoard = ({ users }) => {
+  return (
+    <div className="dashboard">
+      <div className="leader-board">
+        {users.map(user => (
+          <VoteBoard key={user.id} user={user} />
+        ))}
+      </div>
+    </div>
+  );
+};
 
-export default LeaderBoard;
+const mapStateToProps = ({ users }) => {
+  return {
+    users: Object.values(users).sort(
+      (a, b) =>
+        [b.questions.length + Object.values(b.answers).length] -
+        [a.questions.length + Object.values(a.answers).length]
+    )
+  };
+};
+
+export default connect(mapStateToProps)(LeaderBoard);

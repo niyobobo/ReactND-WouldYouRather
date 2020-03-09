@@ -1,0 +1,39 @@
+.card__body {
+  &--question {
+    flex: 2;
+    padding: 0 2rem;
+    border-right: 1px solid $color-gray;
+
+    .name {
+      margin-bottom: 1rem;
+    }
+
+    .row {
+      padding: 1rem 0rem;
+    }
+  }
+
+  &--end {
+    text-align: center;
+    padding: 2rem;
+    flex: 1;
+
+    .head {
+      background-color: $color-gray;
+      padding: 1rem 0;
+    }
+
+    .score-value {
+      margin: 1rem;
+      padding: 0.5rem;
+      color: white;
+      display: inline-flex;
+      background-color: $primary-color;
+      border-radius: 50%;
+      -webkit-border-radius: 50%;
+      -moz-border-radius: 50%;
+      -ms-border-radius: 50%;
+      -o-border-radius: 50%;
+    }
+  }
+}

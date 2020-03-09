@@ -27,9 +27,15 @@ class Home extends Component {
           handleSelection={this.handleTabSelection}
         />
         <div className="dashboard__body">
-          {data[activeTab].map(question => (
-            <Question key={question.id} data={question} />
-          ))}
+          {data[activeTab].length ? (
+            data[activeTab].map(question => (
+              <Question key={question.id} data={question} />
+            ))
+          ) : (
+            <p className="dashboard__no-data">{`You have 0 ${categories
+              .filter(item => item.tabKey === activeTab)[0]
+              .title.toUpperCase()} question`}</p>
+          )}
         </div>
       </div>
     );

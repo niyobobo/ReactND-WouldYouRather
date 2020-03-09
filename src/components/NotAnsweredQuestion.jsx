@@ -4,7 +4,7 @@ import { handleAnswerQuestion } from "../redux/actions/question";
 
 class NotAnsweredQuestion extends Component {
   state = {
-    selectedOption: ""
+    selectedOption: "optionOne"
   };
 
   handleInputSelection = e => {
