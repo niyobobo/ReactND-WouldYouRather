@@ -67,8 +67,15 @@ class NotAnsweredQuestion extends Component {
   }
 }
 
+const mapStateToProps = ({ questions }, ownProps) => ({
+  question: questions[ownProps.id]
+});
+
 const mapDispatchToProps = dispatch => ({
   answerQuestion: payload => dispatch(handleAnswerQuestion(payload))
 });
 
-export default connect(null, mapDispatchToProps)(NotAnsweredQuestion);
+export default connect(
+  mapStateToProps,
+  mapDispatchToProps
+)(NotAnsweredQuestion);

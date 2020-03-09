@@ -7,14 +7,14 @@ import NotAnsweredQuestion from "../components/NotAnsweredQuestion";
 
 class QuestionPoll extends Component {
   render() {
-    const { user, answered, question } = this.props;
+    const { user, answered, questionId } = this.props;
     return (
       <div className="dashboard">
         <Card author={user} answered={answered}>
           {answered ? (
-            <AnsweredQuestion question={question} />
+            <AnsweredQuestion id={questionId} />
           ) : (
-            <NotAnsweredQuestion question={question} />
+            <NotAnsweredQuestion id={questionId} />
           )}
         </Card>
       </div>
@@ -27,9 +27,9 @@ const mapStateToProps = ({ user, users, questions }, ownProps) => {
   const question = questions[id];
 
   return {
-    question,
-    user: users[question.author],
-    answered: checkId(question, user.id)
+    questionId: id,
+    user: users[question.author], //TODO: check if question exists
+    answered: checkId(question, user.id) //TODO: check if question exists
   };
 };
 

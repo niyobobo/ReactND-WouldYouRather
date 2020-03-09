@@ -1,0 +1,74 @@
+.answer {
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  border: 1px solid $color-gray;
+  margin: 1.5rem 0;
+  padding: 1.5rem;
+  font-weight: bold;
+  position: relative;
+
+  &__check {
+    position: absolute;
+    top: 0;
+    height: 2.5rem;
+    width: 2.5rem;
+    right: 0;
+    color: rgba($primary-color-dark, 1);
+    transform: translateX(50%) translateY(-50%);
+    -webkit-transform: translateX(50%) translateY(-50%);
+    -moz-transform: translateX(50%) translateY(-50%);
+    -ms-transform: translateX(50%) translateY(-50%);
+    -o-transform: translateX(50%) translateY(-50%);
+  }
+
+  &__votes {
+    text-align: center;
+  }
+}
+
+.selected {
+  background-color: rgba($primary-color, 0.2);
+  border: 1px solid rgba($primary-color, 1);
+
+  .answer__option {
+    color: rgba($primary-color-dark, 1);
+  }
+}
+
+.progress-bar {
+  height: 2rem;
+  margin: 1.5rem 0;
+  border-radius: 0.5rem;
+  -webkit-border-radius: 0.5rem;
+  -moz-border-radius: 0.5rem;
+  -ms-border-radius: 0.5rem;
+  -o-border-radius: 0.5rem;
+  background-color: rgba($color-gray, 1);
+  position: relative;
+
+  &__fill {
+    height: 100%;
+    text-align: center;
+    padding: 0.5rem;
+    background-color: rgba($primary-color, 1);
+    border-radius: inherit;
+    -webkit-border-radius: inherit;
+    -moz-border-radius: inherit;
+    -ms-border-radius: inherit;
+    -o-border-radius: inherit;
+  }
+
+  &__label {
+    top: 50%;
+    left: 50%;
+    position: absolute;
+    transform: translateX(-50%) translateY(-50%);
+    -webkit-transform: translateX(-50%) translateY(-50%);
+    -moz-transform: translateX(-50%) translateY(-50%);
+    -ms-transform: translateX(-50%) translateY(-50%);
+    -o-transform: translateX(-50%) translateY(-50%);
+  }
+}

@@ -18,7 +18,6 @@ const answerQuestion = (question) => {
   }
 }
 
-
 export const handleCreateQuestion = (question) => async (dispatch, getState) => {
   dispatch(showLoading());
   const { user } = getState();
