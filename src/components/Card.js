@@ -5,7 +5,9 @@ const Card = ({ author, children, answered }) => {
   return (
     <div className="card">
       <div className="card__title">
-        <h3>{!answered ? `${author.name} asks:` : `Asked by ${author.name}`}</h3>
+        <h3>
+          {!answered ? `${author.name} asks:` : `Asked by ${author.name}`}
+        </h3>
       </div>
       <div className="row card__body">
         <div className="column card__body--left">

@@ -4,6 +4,7 @@ import thunk from 'redux-thunk';
 
 const middleware = [thunk];
 
+// Set condition to use logger middleware on in production
 if (process.env.NODE_ENV === "development") {
   middleware.push(logger);
 }
