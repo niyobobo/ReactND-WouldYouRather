@@ -32,9 +32,10 @@ class NotAnsweredQuestion extends Component {
       <Fragment>
         <h2>Would you rather</h2>
         <form onSubmit={this.handleSubmit}>
-          <div className="from__input">
+          <div className="form__input">
             <label>
               <input
+                className="form__input-option"
                 type="radio"
                 value="optionOne"
                 checked={selectedOption === "optionOne"}
@@ -46,6 +47,7 @@ class NotAnsweredQuestion extends Component {
           <div className="form__input">
             <label>
               <input
+                className="form__input-option"
                 type="radio"
                 value="optionTwo"
                 checked={selectedOption === "optionTwo"}

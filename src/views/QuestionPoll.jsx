@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { Redirect } from "react-router-dom";
 import { connect } from "react-redux";
 import { checkId } from "../utils/formatter";
 import Card from "../components/Card";
@@ -8,6 +9,9 @@ import NotAnsweredQuestion from "../components/NotAnsweredQuestion";
 class QuestionPoll extends Component {
   render() {
     const { user, answered, questionId } = this.props;
+    if (!user) {
+      return <Redirect to="/notFound" />;
+    }
     return (
       <div className="dashboard">
         <Card author={user} answered={answered}>
@@ -28,8 +32,8 @@ const mapStateToProps = ({ user, users, questions }, ownProps) => {
 
   return {
     questionId: id,
-    user: users[question.author], //TODO: check if question exists
-    answered: checkId(question, user.id) //TODO: check if question exists
+    user: question && users[question.author],
+    answered: question && checkId(question, user.id)
   };
 };
 

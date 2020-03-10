@@ -1,12 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
 import { headerTitles, checkId } from "../utils/formatter";
-import Question from "../components/Question";
 import TabNavigation from "../components/TabNavigation";
+import Question from "../components/Question";
 
 class Home extends Component {
   state = {
-    activeTab: "notAnswered"
+    activeTab: "unanswered"
   };
 
   handleTabSelection = tab => {
@@ -33,8 +33,8 @@ class Home extends Component {
             ))
           ) : (
             <p className="dashboard__no-data">{`You have 0 ${categories
-              .filter(item => item.tabKey === activeTab)[0]
-              .title.toUpperCase()} question`}</p>
+              .filter(item => item.tab === activeTab)[0]
+              .tab.toUpperCase()} question`}</p>
           )}
         </div>
       </div>
@@ -45,10 +45,12 @@ class Home extends Component {
 const mapStateToProps = ({ user, questions }) => {
   const { id } = user;
   const data = {
-    notAnswered: Object.values(questions).filter(
-      question => !checkId(question, id)
-    ),
-    answered: Object.values(questions).filter(question => checkId(question, id))
+    unanswered: Object.values(questions)
+      .filter(question => !checkId(question, id))
+      .sort((a, b) => b.timestamp - a.timestamp),
+    answered: Object.values(questions)
+      .filter(question => checkId(question, id))
+      .sort((a, b) => b.timestamp - a.timestamp)
   };
   return {
     data,

@@ -75,5 +75,15 @@
     &-section {
       margin: 1rem;
     }
+
+    .form {
+      &__input {
+        margin: 1rem 0;
+
+        &-option {
+          margin-right: 1rem;
+        }
+      }
+    }
   }
 }

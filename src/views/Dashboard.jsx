@@ -5,6 +5,7 @@ import Home from "./Home";
 import Create from "./Create";
 import LeaderBoard from "./LeaderBoard";
 import QuestionPoll from "./QuestionPoll";
+import NotFound from "./NotFound";
 
 class Dashboard extends Component {
   render() {
@@ -15,8 +16,8 @@ class Dashboard extends Component {
           <Route exact path="/" component={Home} />
           <Route path="/add" component={Create} />
           <Route path="/leaderboard" component={LeaderBoard} />
-          <Route path="/question/:id" component={QuestionPoll} />
-          <Route render={() => <div>Not Found</div>} />
+          <Route path="/questions/:id" component={QuestionPoll} />
+          <Route component={NotFound} />
         </Switch>
       </Fragment>
     );

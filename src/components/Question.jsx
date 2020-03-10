@@ -8,7 +8,7 @@ const Question = ({ data, user }) => {
     <Card author={user}>
       <h2 className="card__question-title">Would you rather</h2>
       <p className="card__question-section">...{data.optionOne.text}....</p>
-      <Link className="btn btn__poll block" to={`/question/${data.id}`}>
+      <Link className="btn btn__poll block" to={`/questions/${data.id}`}>
         View Poll
       </Link>
     </Card>
